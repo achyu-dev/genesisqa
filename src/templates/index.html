@@ -1,0 +1,117 @@
+ -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4"><i class="fas fa-tachometer-alt"></i> Genesis QA Dashboard</h1>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h5>Total Test Cases</h5>
+                        <h3 id="totalTestCases">0</h3>
+                    </div>
+                    <i class="fas fa-vial fa-2x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-success text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h5>Files Processed</h5>
+                        <h3 id="filesProcessed">0</h3>
+                    </div>
+                    <i class="fas fa-file-check fa-2x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-warning text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h5>Compliance Score</h5>
+                        <h3 id="complianceScore">85%</h3>
+                    </div>
+                    <i class="fas fa-shield-alt fa-2x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card bg-info text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h5>AI Processing</h5>
+                        <h3>Active</h3>
+                    </div>
+                    <i class="fas fa-brain fa-2x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-chart-pie"></i> Compliance Coverage</h5>
+            </div>
+            <div class="card-body">
+                <div class="compliance-tags">
+                    <span class="badge bg-primary me-2">FDA-21CFR: 45%</span>
+                    <span class="badge bg-success me-2">HIPAA: 30%</span>
+                    <span class="badge bg-warning me-2">IEC-62304: 25%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-clock"></i> Recent Activity</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled" id="recentActivity">
+                    <li><i class="fas fa-upload text-success"></i> Welcome to Genesis QA</li>
+                    <li><i class="fas fa-info text-info"></i> Upload requirements to get started</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-info-circle"></i> About Genesis QA</h5>
+            </div>
+            <div class="card-body">
+                <p class="lead">AI-powered Healthcare Test Automation Platform</p>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-check text-success"></i> Multimodal AI processing (Text + Visual)</li>
+                    <li><i class="fas fa-check text-success"></i> Healthcare-specific compliance engine</li>
+                    <li><i class="fas fa-check text-success"></i> Enterprise ALM integration ready</li>
+                    <li><i class="fas fa-check text-success"></i> FDA, HIPAA, IEC 62304 compliance mapping</li>
+                </ul>
+                <a href="{{ url_for('upload_page') }}" class="btn btn-primary">
+                    <i class="fas fa-upload"></i> Start Processing Requirements
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

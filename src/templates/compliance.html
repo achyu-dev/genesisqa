@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4"><i class="fas fa-shield-alt"></i> Compliance Analytics</h1>
+    </div>
+</div>
+
+<div class="row mb-4">
+    {% if reports %}
+        {% set latest_report = reports[-1] %}
+        <div class="col-md-4">
+            <div class="card bg-success text-white">
+                <div class="card-body text-center">
+                    <h3>{{ latest_report.compliance_score }}%</h3>
+                    <p>Overall Compliance Score</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-info text-white">
+                <div class="card-body text-center">
+                    <h3>{{ latest_report.compliance_coverage|length }}</h3>
+                    <p>Standards Covered</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-warning text-white">
+                <div class="card-body text-center">
+                    <h3>{{ latest_report.total_test_cases }}</h3>
+                    <p>Test Cases Analyzed</p>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="col-12">
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle"></i> No compliance reports available yet. Upload requirements to generate compliance analytics.
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+{% if reports %}
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5>Compliance Coverage Breakdown</h5>
+            </div>
+            <div class="card-body">
+                {% for report in reports %}
+                    {% set outer_loop = loop %}
+                    <h6>Report {{ outer_loop.index }} - {{ report.generated_date }}</h6>
+                    <div class="row mb-3">
+                        {% for standard, data in report.compliance_coverage.items() %}
+                        <div class="col-md-6 mb-2">
+                            <div class="border rounded p-3">
+                                <h6 class="text-primary">{{ standard }}</h6>
+                                <p class="mb-1"><strong>Test Cases:</strong> {{ data.count }}</p>
+                                <small class="text-muted">Coverage: {{ (data.count / report.total_test_cases * 100) | round(1) }}%</small>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% if not outer_loop.last %}<hr>{% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5>Regulatory Standards</h5>
+            </div>
+            <div class="card-body">
+                <div class="standard-info mb-3">
+                    <h6 class="text-primary">FDA 21 CFR Part 11</h6>
+                    <small>Electronic records and signatures</small>
+                </div>
+                <div class="standard-info mb-3">
+                    <h6 class="text-success">HIPAA</h6>
+                    <small>Health information privacy and security</small>
+                </div>
+                <div class="standard-info mb-3">
+                    <h6 class="text-warning">IEC 62304</h6>
+                    <small>Medical device software lifecycle</small>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mt-3">
+            <div class="card-header">
+                <h5>Audit Trail</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled">
+                    {%- for report in reports %}
+                    <li class="mb-2">
+                        <i class="fas fa-check-circle text-success"></i>
+                        <small>{{ report.generated_date }}</small><br>
+                        <small class="text-muted">{{ report.total_test_cases }} test cases processed</small>
+                    </li>
+                    {%- endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

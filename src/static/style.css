@@ -1,0 +1,117 @@
+:root {
+    --primary-color: #007bff;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --danger-color: #dc3545;
+}
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    margin-bottom: 1.5rem;
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid #dee2e6;
+    font-weight: 600;
+}
+
+.processing-step {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.processing-step:last-child {
+    border-bottom: none;
+}
+
+.processing-step i {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.test-case-card {
+    transition: transform 0.2s;
+}
+
+.test-case-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.compliance-tags .badge {
+    font-size: 0.8rem;
+}
+
+.standard-info {
+    padding: 10px;
+    border-left: 4px solid var(--primary-color);
+    background-color: #f8f9fa;
+}
+
+.upload-area {
+    border: 2px dashed #dee2e6;
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.upload-area:hover {
+    border-color: var(--primary-color);
+}
+
+.upload-area.dragover {
+    border-color: var(--success-color);
+    background-color: #f8fff9;
+}
+
+@media (max-width: 768px) {
+    .container-fluid {
+        padding: 0 10px;
+    }
+    
+    .card-body {
+        padding: 15px;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.btn {
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+.progress {
+    height: 8px;
+}
+
+#recentActivity li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+#recentActivity li:last-child {
+    border-bottom: none;
+}

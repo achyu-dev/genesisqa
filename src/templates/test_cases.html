@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4"><i class="fas fa-vial"></i> Generated Test Cases</h1>
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-md-6">
+        <input type="text" class="form-control" id="searchInput" placeholder="Search test cases...">
+    </div>
+    <div class="col-md-6">
+        <select class="form-select" id="filterCompliance" aria-label="Filter by compliance standard">
+            <option value="">All Compliance Standards</option>
+            <option value="FDA-21CFR">FDA 21 CFR</option>
+            <option value="HIPAA">HIPAA</option>
+            <option value="IEC-62304">IEC 62304</option>
+        </select>
+    </div>
+</div>
+
+<div id="testCasesContainer">
+    {% if test_cases %}
+        {% for tc in test_cases %}
+        <div class="card mb-3 test-case-card" data-compliance="{{ tc.compliance_tags|join(',') }}">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h6 class="mb-0">{{ tc.id }} - {{ tc.title }}</h6>
+                <div>
+                    <span class="badge bg-{{ 'danger' if tc.priority == 'High' else 'warning' if tc.priority == 'Medium' else 'secondary' }}">
+                        {{ tc.priority }}
+                    </span>
+                    {% for tag in tc.compliance_tags %}
+                    <span class="badge bg-info ms-1">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="card-body">
+                <p><strong>Description:</strong> {{ tc.description }}</p>
+                <p><strong>Test Steps:</strong></p>
+                <ol>
+                    {% for step in tc.steps %}
+                    <li>{{ step }}</li>
+                    {% endfor %}
+                </ol>
+                <p><strong>Expected Result:</strong> {{ tc.expected_result }}</p>
+                <small class="text-muted">
+                    <i class="fas fa-link"></i> Linked to: {{ tc.requirement_id }} | 
+                    <i class="fas fa-calendar"></i> Created: {{ tc.created_date }}
+                </small>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="card">
+            <div class="card-body text-center">
+                <i class="fas fa-vial fa-3x text-muted mb-3"></i>
+                <h5>No Test Cases Generated Yet</h5>
+                <p class="text-muted">Upload requirements documents to automatically generate test cases.</p>
+                <a href="{{ url_for('upload_page') }}" class="btn btn-primary">
+                    <i class="fas fa-upload"></i> Upload Requirements
+                </a>
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+<div id="exportOptions" class="mt-4" {% if not test_cases %}style="display: none;"{% endif %}>
+    <h5>Export Options</h5>
+    <button class="btn btn-outline-primary me-2" onclick="exportToJira()">
+        <i class="fas fa-external-link-alt"></i> Export to Jira
+    </button>
+    <button class="btn btn-outline-success me-2" onclick="exportToAzure()">
+        <i class="fas fa-external-link-alt"></i> Export to Azure DevOps
+    </button>
+    <button class="btn btn-outline-info" onclick="exportToCSV()">
+        <i class="fas fa-download"></i> Download CSV
+    </button>
+</div>
+{% endblock %}

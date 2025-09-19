@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4"><i class="fas fa-upload"></i> Upload Requirements</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5>Upload Healthcare Requirements Document</h5>
+            </div>
+            <div class="card-body">
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="fileInput" class="form-label">Select Requirements File (.txt)</label>
+                        <input type="file" class="form-control" id="fileInput" name="file" accept=".txt" required>
+                        <div class="form-text">Supported formats: .txt (PDF and images coming soon)</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="projectName" class="form-label">Project Name (Optional)</label>
+                        <input type="text" class="form-control" id="projectName" name="project_name" placeholder="e.g., Patient Management System">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Compliance Standards</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="fda" name="compliance[]" value="FDA-21CFR" checked>
+                            <label class="form-check-label" for="fda">FDA 21 CFR Part 11</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="hipaa" name="compliance[]" value="HIPAA" checked>
+                            <label class="form-check-label" for="hipaa">HIPAA</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="iec" name="compliance[]" value="IEC-62304" checked>
+                            <label class="form-check-label" for="iec">IEC 62304</label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" id="uploadBtn">
+                        <i class="fas fa-upload"></i> Upload & Process
+                    </button>
+                </form>
+                
+                <div id="uploadProgress" class="mt-3" style="display: none;">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
+                    </div>
+                    <p class="mt-2 text-muted">Processing with AI...</p>
+                </div>
+                
+                <div id="uploadResult" class="mt-3"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h6>AI Processing Pipeline</h6>
+            </div>
+            <div class="card-body">
+                <div class="processing-step">
+                    <i class="fas fa-eye text-primary"></i> Multimodal Analysis
+                    <small class="d-block text-muted">Text + Visual processing</small>
+                </div>
+                <div class="processing-step">
+                    <i class="fas fa-brain text-info"></i> Requirements Extraction
+                    <small class="d-block text-muted">AI-powered requirement identification</small>
+                </div>
+                <div class="processing-step">
+                    <i class="fas fa-vial text-success"></i> Test Case Generation
+                    <small class="d-block text-muted">Healthcare-specific test automation</small>
+                </div>
+                <div class="processing-step">
+                    <i class="fas fa-shield-alt text-warning"></i> Compliance Mapping
+                    <small class="d-block text-muted">Regulatory standard alignment</small>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mt-3">
+            <div class="card-header">
+                <h6>Sample Requirements</h6>
+            </div>
+            <div class="card-body">
+                <small class="text-muted">
+                    Try uploading a .txt file with content like:<br><br>
+                    "The system must authenticate users before granting access to patient records. 
+                    The application shall encrypt all patient data in transit and at rest. 
+                    Users should be able to view patient medical history securely."
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
