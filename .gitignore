@@ -2,7 +2,6 @@
 *.docx
 *.pptx
 *.pdf
-*.txt
 .hintrc
 .vscode/
 diagrams/

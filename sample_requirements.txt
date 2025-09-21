@@ -1,0 +1,6 @@
+The system must authenticate healthcare providers before accessing patient records. 
+The application shall encrypt all patient data during transmission and storage. 
+Users should be able to view patient medical history through a secure interface. 
+The system must log all access to sensitive medical information for audit purposes. 
+Healthcare providers must be able to update patient treatment plans securely. 
+The application should validate user permissions before displaying patient data.

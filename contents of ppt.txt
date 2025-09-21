@@ -1,0 +1,34 @@
+Slide 1: Brief about the prototype:
+
+Slide 2: 
+
+Opportunity should be able to explain the following:
+How different is it from any of the other existing solutions?
+How will it be able to solve the problem?
+USP of the proposed solution
+
+Slide 3:
+
+List of features offered by the solution
+It is always better to add a few visual representations (drawings/sketches/illustrations etc.) to your presentation, it adds to the power through which it reaches the audience.
+
+
+Slide 4:
+
+Process flow diagram or Use-case diagram
+Add a flow diagram or a use case diagram or an architecture diagram.
+
+Slide 5:
+
+Technologies to be used in the solution:
+Python libraries for backend
+
+
+Slide 6:
+
+Estimated implementation cost (optional):
+
+
+
+
+

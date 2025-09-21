@@ -1,0 +1,68 @@
+Team Name :
+Problem Statement : Automated Test Case Generation with AI
+Team Leader Name : Achyuth S S
+
+
+
+Brief about our prototype - Genesis QA : AI - powered Healthcare test automation
+An intelligent AI system that automatically converts healthcare software requirements into compliant, enterprise-ready test cases
+Leverages Google's multimodal AI (Gemini Pro + Vision) to understand both text and visual requirements
+Integrates seamlessly with existing ALM platforms (Jira, Azure DevOps, Polarion)
+What problem do we solve?Healthcare QA teams normally spend 60% of their time manually converting regulatory documents following regulatory standards to test cases, thus taking away more time, slowing down critical software development lifecycles.
+What our solution does?Genesis QA automates this entire process while ensuring full regulatory compliance and traceability - transforming weeks of manual work to minutes of AI-powered automation.
+
+
+How different is Genesis QA from existing solutions in the market?
+
+Traditional Solutions
+Genesis QA
+ Text-only processing
+ Multimodal AI to process diagrams, flowcharts, UI mockups
+ Generic test generation
+ Healthcare-specific domain intelligence
+ Compliance mapping performed manually
+ Built-in regulatory knowledge is provided (FDA, HIPAA, IEC 62304)
+ Standalone tools
+ Enterprise ALM integration
+ Limited traceability
+ Complete audit trail automation
+
+How do we solve existing problem?
+
+We propose a multimodal method that involves parallel processing of textual & visual inputs / requirements leveraging different AI models for each
+Our regulatory knowledge is fed with Healthcare Knowledge thus contains efficient mapping to FDA, HIPAA, IEC standards
+We also incorporate edge case identification and generate test cases for all kinds of scenarios
+In addition to this, we also have an Enterprise API layer thus enabling seamless bidirectional integration with ALM platforms and traceability links
+
+USP of our proposed solution –
+Healthcare-Native Compliance Engine in a Multimodal AI pipeline
+
+
+List of features offered by the solution
+
+
+Use-case diagram
+
+
+Genesis QA Dashboard -
+
+Upload page -
+
+Test case page - 
+
+Enterprise ALM integration page - 
+
+Compliance Analytics and reporting page - 
+
+Mobile version of Genesis QA -
+
+
+
+
+Technologies used in Genesis QA:
+
+
+Estimated implementation cost (optional):
+
+Add as per the requirements for the hackathon:
+
